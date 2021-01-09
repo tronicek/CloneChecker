@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <clones>
     <clone nlines="10" similarity="100">
-        <!-- not a clone -->
         <source file="2/selected/1404839.java" startline="96" endline="105">
 public IEEEXploreFetcher() {
         super();
