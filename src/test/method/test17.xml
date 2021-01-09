@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="19" similarity="100">
+        <source file="4/default/83097.java" startline="162" endline="180">
+public &lt;A&gt; IoFuture&lt;Integer, A&gt; read(final ByteBuffer dst, long timeout, TimeUnit unit, A attachment, CompletionHandler&lt;Integer, ? super A&gt; handler) {
+        return key.execute(OP_READ, attachment, handler, timeout, unit, new Callable&lt;Integer&gt;() {
+
+            public Integer call() throws IOException {
+                try {
+                    return channel.read(dst);
+                } catch (ClosedChannelException e) {
+                    throw Util.initCause(new AsynchronousCloseException(), e);
+                }
+            }
+        });
+    }
+</source>
+        <source file="4/default/88356.java" startline="140" endline="158">
+public &lt;A&gt; IoFuture&lt;Integer, A&gt; read(final ByteBuffer dst, long timeout, TimeUnit unit, A attachment, CompletionHandler&lt;Integer, ? super A&gt; handler) {
+        return key.execute(OP_READ, attachment, handler, timeout, unit, new Callable&lt;Integer&gt;() {
+
+            public Integer call() throws IOException {
+                try {
+                    return channel.read(dst);
+                } catch (ClosedChannelException e2) {
+                    throw Util.initCause(new AsynchronousCloseException(), e2);
+                }
+            }
+        });
+    }
+</source>
+    </clone>
+</clones>

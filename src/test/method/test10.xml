@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="10" similarity="100">
+        <source file="org/h2/jdbc/JdbcStatement.java" startline="286" endline="295">
+@Override
+    public SQLWarning getWarnings() throws SQLException {
+        try {
+            debugCodeCall("getWarnings");
+            checkClosed();
+            return null;
+        } catch (Exception e) {
+            throw logAndConvert(e);
+        }
+    }
+</source>
+        <source file="org/h2/jdbc/JdbcStatement.java" startline="482" endline="491">
+@Override
+    public int getMaxFieldSize() throws SQLException {
+        try {
+            debugCodeCall("getMaxFieldSize");
+            checkClosed();
+            return 0;
+        } catch (Exception e) {
+            throw logAndConvert(e);
+        }
+    }
+</source>
+    </clone>
+</clones>

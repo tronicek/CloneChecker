@@ -1,0 +1,8 @@
+/dist/
+/output/
+/target/
+/bigclonebench/**/*.xml
+/evaluation/**/*.xml
+/evaluation/CloneWorks/**/*.clones
+/evaluation/CloneWorks/**/*.files
+/evaluation/SourcererCC/**/*.txt

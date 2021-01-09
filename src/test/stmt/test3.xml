@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="16" similarity="100">
+        <!-- identifiers -->
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="87" endline="102">
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+</source>
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="113" endline="128">
+for (int i = 0; i &lt; 10; i++) {
+    for (short j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+</source>
+    </clone>
+    <clone nlines="16" similarity="100">
+        <!-- literals -->
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="87" endline="102">
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+</source>
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="113" endline="128">
+for (int i = 0; i &lt; 20; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+</source>
+    </clone>
+    <clone nlines="16" similarity="100">
+        <!-- identifiers, literals -->
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="87" endline="102">
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(i - j);
+    }
+}
+</source>
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="113" endline="128">
+for (int i = 0; i &lt; 20; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(j - i);
+    }
+}
+</source>
+    </clone>
+</clones>

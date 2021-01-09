@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers -->
+        <source file="java/org/mockito/internal/matchers/And.java" startline="35" endline="40">
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            out.append(it.next().toString());
+            if (it.hasNext()) {
+                out.append(", ");
+            }
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/Or.java" startline="35" endline="40">
+for (int i = 0; i &lt; 10; i++) {
+    for (short j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            sb.append(it.next().toString());
+            if (it.hasNext()) {
+                sb.append(", ");
+            }
+        }
+</source>
+    </clone>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers -->
+        <source file="java/org/mockito/internal/matchers/And.java" startline="35" endline="40">
+super (42);
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            out.append(it.next().toString());
+            if (it.hasNext()) {
+                out.append(", ");
+            }
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/Or.java" startline="35" endline="40">
+super (42);
+for (int i = 0; i &lt; 10; i++) {
+    for (short j = 0; j &lt; i; j++) {
+        System.out.println(i + j);
+    }
+}
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            sb.append(it.next().toString());
+            if (it.hasNext()) {
+                sb.append(", ");
+            }
+        }
+</source>
+    </clone>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers -->
+        <source file="java/org/mockito/internal/matchers/And.java" startline="35" endline="40">
+this(frame,jEdit.getProperty(name + ".title"),
+                        jEdit.getProperty(name + ".message"),
+                        UIManager.getIcon("OptionPane.errorIcon"),
+                        MiscUtilities.throwableToString(t));
+</source>
+        <source file="java/org/mockito/internal/matchers/Or.java" startline="35" endline="40">
+this(frame,jEdit.getProperty(nameX + ".title"),
+                        jEdit.getProperty(name + ".message"),
+                        UIManager.getIcon("OptionPane.errorIcon"),
+                        MiscUtilities.throwableToString(t));
+</source>
+    </clone>
+</clones>

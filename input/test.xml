@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="10" similarity="100">
+        <!-- not a clone -->
+        <source file="2/selected/1404839.java" startline="96" endline="105">
+public IEEEXploreFetcher() {
+        super();
+        fieldPatterns.put("title", "&lt;a\\s*href=[^&lt;]+&gt;\\s*(.+)\\s*&lt;/a&gt;");
+        fieldPatterns.put("author", "&lt;p&gt;\\s+(.+)");
+        fieldPatterns.put("volume", "Volume:\\s*(\\d+)");
+        fieldPatterns.put("number", "Issue:\\s*(\\d+)");
+        fieldPatterns.put("year", "Publication Year:\\s*(\\d{4})");
+        fieldPatterns.put("pages", "Page\\(s\\):\\s*(\\d+)\\s*-\\s*(\\d*)");
+        fieldPatterns.put("doi", "Digital Object Identifier:\\s*&lt;a href=.*&gt;(.+)&lt;/a&gt;");
+    }
+</source>
+        <source file="4/selected/2554585.java" startline="41" endline="50">
+public NOb() {
+        super();
+        super.put("authorname", "");
+        super.put("objectid", "");
+        super.put("datetime", "");
+        super.put("label", "");
+        super.put("datatype", "");
+        super.put("dataref", "");
+        super.put("description", "");
+    }
+</source>
+    </clone>
+</clones>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="6" similarity="100">
+        <!-- type 1 -->
+        <source file="java/org/mockito/internal/verification/checkers/AtLeastXNumberOfInvocationsChecker.java" startline="39" endline="44">
+for (Iterator&lt;Invocation&gt; iterator = invocations.iterator(); iterator.hasNext(); ) {
+            Invocation i = iterator.next();
+            if (i.isVerified()) {
+                iterator.remove();
+            }
+        }
+</source>
+        <source file="java/org/mockito/internal/verification/checkers/NumberOfInvocationsChecker.java" startline="47" endline="52">
+for (Iterator&lt;Invocation&gt; iterator = invocations.iterator(); iterator.hasNext(); ) {
+            Invocation i = iterator.next();
+            if (i.isVerified()) {
+                iterator.remove();
+            }
+        }
+</source>
+    </clone>
+    <clone nlines="3" similarity="100">
+        <!-- type 1 -->
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="738" endline="740">
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="769" endline="771">
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+    </clone>
+    <clone nlines="3" similarity="100">
+        <!-- type 1 -->
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="738" endline="740">
+for (Iterator&lt;Invocation&gt; iterator = invocations.iterator(); iterator.hasNext(); ) {
+            Invocation i = iterator.next();
+            if (i.isVerified()) {
+                iterator.remove();
+            }
+        }
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="769" endline="771">
+for (Iterator&lt;Invocation&gt; iterator = invocations.iterator(); iterator.hasNext(); ) {
+            Invocation i = iterator.next();
+            if (i.isVerified()) {
+                iterator.remove();
+            }
+        }
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+    </clone>
+    <clone nlines="3" similarity="100">
+        <!-- type 1 -->
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="738" endline="740">
+super(10);
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="769" endline="771">
+super(10);
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+    </clone>
+    <clone nlines="3" similarity="100">
+        <!-- type 1 -->
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="738" endline="740">
+this("");
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java" startline="769" endline="771">
+this("");
+for (int i = 0; i &lt; lhs.length &amp;&amp; isEquals; ++i) {
+            append(lhs[i], rhs[i]);
+        }
+</source>
+    </clone>
+</clones>

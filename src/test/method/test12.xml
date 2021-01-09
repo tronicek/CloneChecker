@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="18" similarity="100">
+        <source file="4/selected/2719948.java" startline="570" endline="587">
+@Test
+    public void overrideLastCascadedObjectWithMockedInstance(final Date mockedDate) {
+        Date newDate = new Date(123);
+        assertEquals(0, newDate.getTime());
+        new NonStrictExpectations() {
+
+            @Cascading
+            Foo foo;
+
+            {
+                foo.getBar().getBaz().getDate();
+                result = mockedDate;
+            }
+        };
+        assertSame(mockedDate, new Foo().getBar().getBaz().getDate());
+        assertEquals(0, newDate.getTime());
+        assertEquals(0, mockedDate.getTime());
+    }
+</source>
+        <source file="4/selected/2719948.java" startline="589" endline="606">
+@Test
+    public void overrideLastCascadedObjectWithInjectableMockInstance(@Injectable final Date mockDate) {
+        Date newDate = new Date(123);
+        assertEquals(123, newDate.getTime());
+        new NonStrictExpectations() {
+
+            @Cascading
+            Foo foo;
+
+            {
+                foo.getBar().getBaz().getDate();
+                result = mockDate;
+            }
+        };
+        assertSame(mockDate, new Foo().getBar().getBaz().getDate());
+        assertEquals(123, newDate.getTime());
+        assertEquals(0, mockDate.getTime());
+    }
+</source>
+    </clone>
+</clones>

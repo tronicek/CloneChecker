@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="13" similarity="100">
+        <source file="4/selected/1524177.java" startline="23" endline="36">
+@Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        PendingGroupMembership other = (PendingGroupMembership) obj;
+        if (user == null) {
+            if (other.user != null) return false;
+        } else if (!user.equals(other.user)) return false;
+        if (userGroup == null) {
+            if (other.userGroup != null) return false;
+        } else if (!userGroup.equals(other.userGroup)) return false;
+        return true;
+    }
+</source>
+        <source file="4/selected/298294.java" startline="116" endline="129">
+@Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        @SuppressWarnings("rawtypes") BaseProperty other = (BaseProperty) obj;
+        if (ivClassInfo == null) {
+            if (other.ivClassInfo != null) return false;
+        } else if (!ivClassInfo.equals(other.ivClassInfo)) return false;
+        if (ivName == null) {
+            if (other.ivName != null) return false;
+        } else if (!ivName.equals(other.ivName)) return false;
+        return true;
+    }
+</source>
+    </clone>
+</clones>

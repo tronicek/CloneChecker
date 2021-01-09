@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="3" similarity="100">
+        <!-- identifiers -->
+        <source file="A.java" startline="116" endline="118">
+    public Connection(String name) {
+        this(name);
+        log("connection");
+    }
+</source>
+        <source file="B.java" startline="781" endline="783">
+    public Statement(String id) {
+        log(id);
+        print("statement");
+    }
+</source>
+    </clone>
+</clones>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers -->
+        <source file="java/org/mockito/internal/matchers/And.java" startline="35" endline="40">
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            out.append(it.next().toString());
+            if (it.hasNext()) {
+                out.append(", ");
+            }
+        }
+</source>
+        <source file="java/org/mockito/internal/matchers/Or.java" startline="35" endline="40">
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            sb.append(it.next().toString());
+            if (it.hasNext()) {
+                sb.append(", ");
+            }
+        }
+</source>
+    </clone>
+    <clone nlines="6" similarity="100">
+        <!-- literals -->
+        <source file="java/org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.java" startline="175" endline="180">
+if (mockFeatures.getTypeToMock().isArray()) {
+            throw new MockitoException(join(
+                    "Arrays cannot be mocked: " + mockFeatures.getTypeToMock() + ".",
+                    ""
+            ), generationFailed);
+        }
+</source>
+        <source file="java/org/mockito/internal/creation/bytebuddy/SubclassByteBuddyMockMaker.java" startline="83" endline="88">
+if (mockFeatures.getTypeToMock().isArray()) {
+            throw new MockitoException(join(
+                    "Mockito cannot mock arrays: " + mockFeatures.getTypeToMock() + ".",
+                    ""
+                    ), generationFailed);
+        }
+</source>
+    </clone>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers, literals -->
+        <source file="java/org/mockito/internal/debugging/LoggingListener.java" startline="68" endline="73">
+if (!unusedStubs.isEmpty()) {
+            lines.add("[Mockito]");
+            lines.add("[Mockito] Unused stubbing (perhaps can be removed from the test?):");
+            lines.add("[Mockito]");
+            addOrderedList(lines, unusedStubs);
+        }
+</source>
+        <source file="java/org/mockito/internal/debugging/LoggingListener.java" startline="75" endline="80">
+if (!unstubbedCalls.isEmpty()) {
+            lines.add("[Mockito]");
+            lines.add("[Mockito] Unstubbed method invocations (perhaps missing stubbing in the test?):");
+            lines.add("[Mockito]");
+            addOrderedList(lines, unstubbedCalls);
+        }
+</source>
+    </clone>
+</clones>

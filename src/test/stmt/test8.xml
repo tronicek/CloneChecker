@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="16" similarity="100">
+        <!-- normalization -->
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="87" endline="102">
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        if (i + j == 10) {
+            return i - j;
+        }
+    }
+}
+</source>
+        <source file="de/masters_of_disaster/ant/tasks/ar/ArUtils.java" startline="113" endline="128">
+for (int i = 0; i &lt; 10; i++) {
+    for (int j = 0; j &lt; i; j++) {
+        if (i + j == 10) {
+            return (i - j);
+        }
+    }
+}
+</source>
+    </clone>
+</clones>

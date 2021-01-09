@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="6" similarity="100">
+        <!-- normalization -->
+        <source file="java/org/mockito/internal/verification/checkers/AtLeastXNumberOfInvocationsChecker.java" startline="39" endline="44">
+for (Iterator&lt;Invocation&gt; iterator = invocations.iterator(); iterator.hasNext(); ) {
+            Invocation i = iterator.next();
+            if (i.isVerified()) {
+                iterator.remove();
+            }
+        }
+</source>
+        <source file="java/org/mockito/internal/verification/checkers/NumberOfInvocationsChecker.java" startline="47" endline="52">
+for (Iterator&lt;Invocation&gt; iterator = invocations.iterator(); iterator.hasNext(); ) {
+            Invocation i = iterator.next();
+            if (i.isVerified())
+                iterator.remove();
+        }
+</source>
+    </clone>
+</clones>

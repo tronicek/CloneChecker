@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers, literals -->
+        <source file="java/org/mockito/internal/debugging/LoggingListener.java" startline="68" endline="73">
+if (!unusedStubs.isEmpty()) {
+            lines.add("[Mockito]");
+            lines.add("[Mockito] Unused stubbing (perhaps can be removed from the test?):");
+            lines.add("[Mockito]");
+            addOrderedList(lines, unusedStubs);
+            return 0;
+        }
+</source>
+        <source file="java/org/mockito/internal/debugging/LoggingListener.java" startline="75" endline="80">
+if (!unstubbedCalls.isEmpty()) {
+            lines.add("[Mockito]");
+            lines.add("[Mockito] Unstubbed method invocations (perhaps missing stubbing in the test?):");
+            lines.add("[Mockito]");
+            addOrderedList(lines, unstubbedCalls);
+            return null;
+        }
+</source>
+    </clone>
+</clones>

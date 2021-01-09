@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="6" similarity="100">
+        <!-- identifiers, literals -->
+        <source file="java/org/mockito/internal/matchers/And.java" startline="35" endline="40">
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            out.append(it.next().toString());
+            if (it.hasNext()) {
+                out.append(", ");
+            }
+        }
+        return 1;
+</source>
+        <source file="java/org/mockito/internal/matchers/Or.java" startline="35" endline="40">
+for (Iterator&lt;ArgumentMatcher&gt; it = matchers.iterator(); it.hasNext();) {
+            sb.append(it.next().toString());
+            if (it.hasNext()) {
+                sb.append(", ");
+            }
+        }
+        return -1;
+</source>
+    </clone>
+</clones>
