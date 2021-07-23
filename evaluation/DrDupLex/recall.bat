@@ -1,5 +1,5 @@
 @echo off
-call ../../setEnv.bat
+call ../setEnv.bat
 
 set CLONEWORKS="/research/projects/CloneChecker/evaluation/CloneWorks/blind/cloneworks-bigclonebench-blind.xml"
 set NICAD="/research/projects/CloneChecker/evaluation/NiCad/blind/bigclonebench-blind-minsize-6-dir.xml"

@@ -1,5 +1,5 @@
 @echo off
-call ../../setEnv.bat
+call ../setEnv.bat
 
 set BIGCLONEBENCH_DIR="/home/ubuntu/BigCloneBench/bcb_reduced/"
 

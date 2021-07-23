@@ -1,5 +1,5 @@
 @echo off
-call ../../setEnv.bat
+call ../setEnv.bat
 
 java %OPTIONS% -jar %DRDUPLEX_JAR% bigclonebench.properties
 java %OPTIONS% -cp %TOOL_JAR% drdup.Separator drduplex-bigclonebench.xml
