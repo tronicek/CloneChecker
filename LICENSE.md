@@ -1,6 +1,6 @@
 LICENSE FOR RESEARCH AND EVALUATION
 
-DrDup2
+CloneChecker
 
 Copyright © 2021 Zdenek Tronicek. All rights reserved.
 
