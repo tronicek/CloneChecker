@@ -5,7 +5,7 @@ import edu.tarleton.checker.symtab.SymbolTable;
 /**
  * The consistent renaming strategy.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class ConsistentRename extends RenameStrategy {
 

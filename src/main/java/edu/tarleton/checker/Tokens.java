@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * The class that represents tokens created from the source code.
  * 
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class Tokens {
 

@@ -7,7 +7,7 @@ import java.util.Properties;
 /**
  * The common parent of parsers.
  * 
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public abstract class Parser {
 

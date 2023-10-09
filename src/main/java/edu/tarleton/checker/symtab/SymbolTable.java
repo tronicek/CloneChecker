@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * The class that works as a flat symbol table.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class SymbolTable {
 

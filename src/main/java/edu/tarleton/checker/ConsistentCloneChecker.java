@@ -20,7 +20,7 @@ import javax.xml.bind.Unmarshaller;
 /**
  * The checker for rename=consistent.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class ConsistentCloneChecker extends CloneChecker {
 
@@ -44,6 +44,7 @@ public class ConsistentCloneChecker extends CloneChecker {
             System.out.printf("type 1: %d%n", type1.size());
             System.out.printf("type 2: %d%n", type2.size());
             System.out.printf("not a clone: %d%n", notClones.size());
+            System.out.printf("invalid: %d%n", invalid.size());
             return;
         }
         File dir = new File(outputDir);
@@ -292,7 +293,7 @@ public class ConsistentCloneChecker extends CloneChecker {
             out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
             out.println("<clones>");
             for (NiCadClone clone : clones.getClones()) {
-                out.printf("    <clone nlines=\"%d\" similarity=\"%d\">%n", clone.getNlines(), clone.getSimilarity());
+                out.printf("    <clone nlines=\"%d\" distance=\"%d\">%n", clone.getNlines(), clone.getDistance());
                 String comment = comments.get(clone);
                 if (comment != null) {
                     out.printf("        <!-- %s -->%n", comment);

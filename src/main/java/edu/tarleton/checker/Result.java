@@ -4,8 +4,8 @@ import java.util.Set;
 
 /**
  * The class that represents the result of comparison of clone candidates.
- * 
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ *
+ * @author Zdenek Tronicek
  */
 public class Result {
 
@@ -17,14 +17,16 @@ public class Result {
 
     private final boolean clone;
     private final Set<Diff> diff;
+    private final int distance;
 
     public Result(boolean clone, Set<Diff> diff) {
-        this(clone, false, diff);
+        this(clone, diff, 100);
     }
 
-    public Result(boolean clone, boolean uncertain, Set<Diff> diff) {
+    public Result(boolean clone, Set<Diff> diff, int distance) {
         this.clone = clone;
         this.diff = diff;
+        this.distance = distance;
     }
 
     public boolean isClone() {
@@ -33,6 +35,10 @@ public class Result {
 
     public Set<Diff> getDiff() {
         return diff;
+    }
+    
+    public boolean hasDiff() {
+        return !diff.isEmpty();
     }
 
     public String getDiffAsString() {
@@ -56,5 +62,9 @@ public class Result {
             sb.append("normalization");
         }
         return sb.toString();
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

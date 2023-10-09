@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="3" distance="2">
+        <source file="A.java" startline="116" endline="118">
+    int sum(int x, int y) {
+        return x + y;
+    }
+</source>
+        <source file="B.java" startline="781" endline="783">
+    int add(int a, int b) {
+        return (a + b);
+    }
+</source>
+    </clone>
+</clones>

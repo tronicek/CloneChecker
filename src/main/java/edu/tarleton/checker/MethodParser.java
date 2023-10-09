@@ -13,7 +13,7 @@ import java.util.Properties;
 /**
  * The parser that parses methods, constructors and initializers.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class MethodParser extends Parser {
 

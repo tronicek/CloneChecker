@@ -23,13 +23,13 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 /**
- * The checker for rename=blind.
+ * The checker for Type-3 clones and rename=blind.
  *
  * @author Zdenek Tronicek
  */
-public class BlindCloneChecker extends CloneChecker {
+public class BlindClone3Checker extends Clone3Checker {
 
-    public BlindCloneChecker(Properties conf) {
+    public BlindClone3Checker(Properties conf) {
         super(conf);
     }
 
@@ -45,6 +45,7 @@ public class BlindCloneChecker extends CloneChecker {
         if (outputDir == null) {
             System.out.printf("type 1: %d%n", type1.size());
             System.out.printf("type 2: %d%n", type2.size());
+            System.out.printf("type 3: %d%n", type3.size());
             System.out.printf("not a clone: %d%n", notClones.size());
             System.out.printf("invalid: %d%n", invalid.size());
             return;
@@ -60,6 +61,8 @@ public class BlindCloneChecker extends CloneChecker {
         writeTextFile(clonesType1, comments, outputDir + "clones-type1.xml");
         NiCadClones clonesType2 = new NiCadClones(type2);
         writeTextFile(clonesType2, comments, outputDir + "clones-type2.xml");
+        NiCadClones clonesType3 = new NiCadClones(type3);
+        writeTextFile(clonesType3, comments, outputDir + "clones-type3.xml");
         NiCadClones notClones2 = new NiCadClones(notClones);
         writeTextFile(notClones2, comments, outputDir + "not-clones.xml");
         NiCadClones invalid2 = new NiCadClones(invalid);
@@ -101,7 +104,15 @@ public class BlindCloneChecker extends CloneChecker {
                 comments.put(clone, res2.getDiffAsString());
                 return;
             }
-            comments.put(clone, "not a clone");
+            Result res3 = checkType3(clone.getDistance(), tokens2);
+            if (res3.isClone()) {
+                type3.add(clone);
+                if (res3.hasDiff()) {
+                    comments.put(clone, res3.getDiffAsString());
+                }
+                return;
+            }
+            comments.put(clone, "distance=\"" + res3.getDistance() + "\"");
             notClones.add(clone);
         } catch (ParseException e) {
             invalid.add(clone);
@@ -181,6 +192,59 @@ public class BlindCloneChecker extends CloneChecker {
         return new Result(true, diff);
     }
 
+    public Result checkType3(int distance, List<Tokens> tokens) {
+        Set<Diff> diff = new TreeSet<>();
+        for (int i = 0; i < tokens.size() - 1; i++) {
+            Tokens tt1 = tokens.get(i);
+            Tokens tt2 = tokens.get(i + 1);
+            Result res = isType3(distance, tt1, tt2);
+            if (!res.isClone()) {
+                return res;
+            }
+            diff.addAll(res.getDiff());
+        }
+        return new Result(true, diff);
+    }
+
+    private Result isType3(int distance, Tokens tt1, Tokens tt2) {
+        Set<Diff> diff = new TreeSet<>();
+        if (tt1.wasNormalized() || tt2.wasNormalized()) {
+            diff.add(Result.Diff.NORMALIZATION);
+        }
+        int d = levenshteinDistance(tt1.getTokens(), tt2.getTokens());
+        if (d != distance) {
+            System.out.printf("Distance: %d, expected distance: %d%n", d, distance);
+            return new Result(false, diff, d);
+        }
+        return new Result(true, diff);
+    }
+
+    private int levenshteinDistance(List<JavaToken> tt1, List<JavaToken> tt2) {
+        int m = tt1.size();
+        int[] d = new int[m + 1];
+        for (int i = 0; i < d.length; i++) {
+            d[i] = i;
+        }
+        int[] nd = new int[d.length];
+        for (int i = 0; i < tt2.size(); i++) {
+            nd[0] = i + 1;
+            for (int j = 0; j < m; j++) {
+                JavaToken t1 = tt1.get(j);
+                JavaToken t2 = tt2.get(i);
+                Result res = equal(t1, t2);
+                if (res.isClone()) {
+                    nd[j + 1] = d[j];
+                } else {
+                    nd[j + 1] = 1 + min(d[j + 1], nd[j], d[j]);
+                }
+            }
+            int[] p = d;
+            d = nd;
+            nd = p;
+        }
+        return d[m];
+    }
+
     private Result equal(JavaToken tok1, JavaToken tok2) {
         String s1 = tok1.getText();
         String s2 = tok2.getText();
@@ -188,10 +252,10 @@ public class BlindCloneChecker extends CloneChecker {
             return new Result(true, Collections.emptySet());
         }
         if (isIdentifier(tok1) && isIdentifier(tok2)) {
-            return new Result(true, Collections.singleton(Diff.IDENTIFIERS));
+            return new Result(true, Collections.singleton(Result.Diff.IDENTIFIERS));
         }
         if (isLiteral(tok1) && isLiteral(tok2)) {
-            return new Result(true, Collections.singleton(Diff.LITERALS));
+            return new Result(true, Collections.singleton(Result.Diff.LITERALS));
         }
         return new Result(false, null);
     }
@@ -244,6 +308,14 @@ public class BlindCloneChecker extends CloneChecker {
             default:
                 return false;
         }
+    }
+
+    private int min(int a, int b, int c) {
+        int m = a < b ? a : b;
+        if (c < m) {
+            m = c;
+        }
+        return m;
     }
 
     private void writeTextFile(NiCadClones clones, Map<NiCadClone, String> comments, String fileName) throws Exception {

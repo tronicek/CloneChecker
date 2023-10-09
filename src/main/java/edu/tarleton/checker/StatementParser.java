@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * The parser that parses statements.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class StatementParser extends Parser {
 

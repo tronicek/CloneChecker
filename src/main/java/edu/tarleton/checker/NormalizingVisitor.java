@@ -23,7 +23,7 @@ import java.util.Properties;
 /**
  * The visitor that implements normalization, such as adding curly braces.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
 
@@ -109,7 +109,7 @@ public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
         if (addBlocks && !body.isBlockStmt()) {
             BlockStmt block = new BlockStmt();
             block.addStatement(body);
-            n.setBody(block);            
+            n.setBody(block);
             addBlock(body);
             modified = true;
         }
@@ -142,7 +142,7 @@ public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
         if (addBlocks && !body.isBlockStmt()) {
             BlockStmt block = new BlockStmt();
             block.addStatement(body);
-            n.setBody(block);            
+            n.setBody(block);
             addBlock(body);
             modified = true;
         }
@@ -155,7 +155,7 @@ public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
         if (addBlocks && !thenStmt.isBlockStmt()) {
             BlockStmt block = new BlockStmt();
             block.addStatement(thenStmt);
-            n.setThenStmt(block);            
+            n.setThenStmt(block);
             addBlock(thenStmt);
             modified = true;
         }
@@ -163,7 +163,7 @@ public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
         if (addBlocks && elseStmt != null && !elseStmt.isBlockStmt()) {
             BlockStmt block = new BlockStmt();
             block.addStatement(elseStmt);
-            n.setElseStmt(block);            
+            n.setElseStmt(block);
             addBlock(elseStmt);
             modified = true;
         }
@@ -199,15 +199,27 @@ public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
 
     @Override
     public void visit(UnaryExpr n, Void arg) {
-        Expression expr = n.getExpression();
-        if (ignoreUnaryAtLiterals && expr.isLiteralExpr()) {
-            TokenRange range = n.getTokenRange().get();
-            JavaToken tok = range.getBegin();
-            JavaToken lit = range.getEnd();
-            lit.setText(tok.getText() + lit.getText());
-            deleteToken(tok);
+        if (ignoreUnaryAtLiterals) {
+            removeUnary(n);
         }
         super.visit(n, arg);
+    }
+
+    private void removeUnary(UnaryExpr n) {
+        switch (n.getOperator()) {
+            case PLUS:
+            case MINUS:
+                Expression expr = n.getExpression();
+                if (expr.isDoubleLiteralExpr()
+                        || expr.isIntegerLiteralExpr()
+                        || expr.isLongLiteralExpr()) {
+                    TokenRange range = n.getTokenRange().get();
+                    JavaToken tok = range.getBegin();
+                    JavaToken lit = range.getEnd();
+                    lit.setText(tok.getText() + lit.getText());
+                    deleteToken(tok);
+                }
+        }
     }
 
     @Override
@@ -216,7 +228,7 @@ public class NormalizingVisitor extends VoidVisitorAdapter<Void> {
         if (addBlocks && !body.isBlockStmt()) {
             BlockStmt block = new BlockStmt();
             block.addStatement(body);
-            n.setBody(block);            
+            n.setBody(block);
             addBlock(body);
             modified = true;
         }

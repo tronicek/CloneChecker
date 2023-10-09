@@ -56,7 +56,7 @@ import java.util.Properties;
 /**
  * The visitor that renames identifiers.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class RenamingVisitor extends VoidVisitorAdapter<Void> {
 
@@ -489,17 +489,9 @@ public class RenamingVisitor extends VoidVisitorAdapter<Void> {
         if (first) {
             n.getType().accept(this, arg);
         }
-//        if (!first) {
-//            removeLastIdentifier();
-//        }
         declareVar(n.getNameAsString());
         n.getName().accept(this, arg);
         n.getInitializer().ifPresent(p -> p.accept(this, arg));
-    }
-
-    private void removeLastIdentifier() {
-        int size = identifiers.size();
-        identifiers.remove(size - 1);
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.Properties;
 /**
  * The entry class.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class Main {
 
@@ -19,7 +19,18 @@ public class Main {
         try (FileReader in = new FileReader(args[0])) {
             conf.load(in);
         }
-        CloneChecker checker = CloneChecker.instance(conf);
-        checker.process();
+        String type = conf.getProperty("type", "2");
+        switch (type) {
+            case "2": {
+                CloneChecker checker = CloneChecker.instance(conf);
+                checker.process();
+                break;
+            }
+            case "3": {
+                Clone3Checker checker = Clone3Checker.instance(conf);
+                checker.process();
+                break;
+            }
+        }
     }
 }

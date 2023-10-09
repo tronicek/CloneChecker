@@ -3,7 +3,7 @@ package edu.tarleton.checker.symtab;
 /**
  * The symbol table entry.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class Entry {
 

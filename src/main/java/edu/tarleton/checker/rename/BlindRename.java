@@ -3,7 +3,7 @@ package edu.tarleton.checker.rename;
 /**
  * The blind renaming strategy.
  *
- * @author Zdenek Tronicek, tronicek@tarleton.edu
+ * @author Zdenek Tronicek
  */
 public class BlindRename extends RenameStrategy {
 
