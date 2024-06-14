@@ -171,4 +171,67 @@ public class MethodClone3Test {
         assertEquals(1, check.getType3().size());
         assertEquals(0, check.getNotClones().size());
     }
+
+    @Test
+    public void test12() throws Exception {
+        Clone3Checker check = test("test12.xml", "blind");
+        assertEquals(0, check.getType1().size());
+        assertEquals(0, check.getType2().size());
+        assertEquals(1, check.getType3().size());
+        assertEquals(0, check.getNotClones().size());
+    }
+
+    @Test
+    public void test12a() throws Exception {
+        Properties conf = new Properties();
+        conf.setProperty("rename", "blind");
+        conf.setProperty("ignoreAnnotations", "true");
+        Clone3Checker check = test("test13.xml", conf);
+        assertEquals(0, check.getType1().size());
+        assertEquals(1, check.getType2().size());
+        assertEquals(0, check.getType3().size());
+        assertEquals(0, check.getNotClones().size());
+    }
+
+    @Test
+    public void test13() throws Exception {
+        Clone3Checker check = test("test13.xml", "blind");
+        assertEquals(0, check.getType1().size());
+        assertEquals(0, check.getType2().size());
+        assertEquals(1, check.getType3().size());
+        assertEquals(0, check.getNotClones().size());
+    }
+
+    @Test
+    public void test13a() throws Exception {
+        Properties conf = new Properties();
+        conf.setProperty("rename", "blind");
+        conf.setProperty("ignoreAnnotations", "true");
+        Clone3Checker check = test("test13.xml", conf);
+        assertEquals(0, check.getType1().size());
+        assertEquals(1, check.getType2().size());
+        assertEquals(0, check.getType3().size());
+        assertEquals(0, check.getNotClones().size());
+    }
+
+    @Test
+    public void test14() throws Exception {
+        Clone3Checker check = test("test14.xml", "blind");
+        assertEquals(0, check.getType1().size());
+        assertEquals(0, check.getType2().size());
+        assertEquals(1, check.getType3().size());
+        assertEquals(0, check.getNotClones().size());
+    }
+
+    @Test
+    public void test14a() throws Exception {
+        Properties conf = new Properties();
+        conf.setProperty("rename", "blind");
+        conf.setProperty("ignoreAnnotations", "true");
+        Clone3Checker check = test("test14.xml", conf);
+        assertEquals(0, check.getType1().size());
+        assertEquals(1, check.getType2().size());
+        assertEquals(0, check.getType3().size());
+        assertEquals(0, check.getNotClones().size());
+    }
 }

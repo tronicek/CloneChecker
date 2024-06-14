@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<clones>
+    <clone nlines="12" distance="7">
+        <source file="com/sun/org/apache/xerces/internal/jaxp/datatype/DatatypeFactoryImpl.java" startline="218" endline="229">
+public Collection createCollection(
+                final BigInteger one,
+                final BigInteger two,
+                final BigInteger three) {
+            List p = new ArrayList();
+            p.add(one);
+            p.add(two);
+            p.add(three);
+            return p;
+        }
+</source>
+        <source file="com/sun/org/apache/xerces/internal/jaxp/datatype/DatatypeFactoryImpl.java" startline="248" endline="258">
+@Override
+public Collection createCollection(
+                final BigInteger one,
+                final BigInteger two,
+                final BigInteger three) {
+            @SuppressWarnings("unchecked")
+            List p = new ArrayList();
+            p.add(one);
+            p.add(two);
+            p.add(three);
+            return p;
+        }
+</source>
+    </clone>
+</clones>

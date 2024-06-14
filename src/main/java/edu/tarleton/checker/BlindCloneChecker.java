@@ -251,7 +251,11 @@ public class BlindCloneChecker extends CloneChecker {
             out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
             out.println("<clones>");
             for (NiCadClone clone : clones.getClones()) {
-                out.printf("    <clone nlines=\"%d\" distance=\"%d\">%n", clone.getNlines(), clone.getDistance());
+                out.printf("    <clone nlines=\"%d\"", clone.getNlines());
+                if (clone.getDistance() != null) {
+                    out.printf(" distance=\"%d\"", clone.getDistance());
+                }
+                out.println(">");
                 String comment = comments.get(clone);
                 if (comment != null) {
                     out.printf("        <!-- %s -->%n", comment);
